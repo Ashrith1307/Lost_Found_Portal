@@ -8,6 +8,10 @@ mongoose
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
+const express = require("express");
+const app = express();
+app.use(express.json()); // Middleware to parse JSON request body
+  
 const Item = require("./models/itemModels"); // Import Model
 
 app.get("/api/items", async (req, res) => {
