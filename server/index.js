@@ -17,7 +17,7 @@ const Item = require("./models/itemModels"); // Import Model
 app.get("/api/items", async (req, res) => {
   try {
     const items = await Item.find({}); // Fetch all items from MongoDB
-    res.json(items);
+    res.status(201).json(items);
   } catch (err) {
     res.status(500).json({ error: "Server error" });
   }
@@ -44,7 +44,8 @@ app.put("/api/items/:id", async (req, res) => {
 
     if (!updatedItem) return res.status(404).json({ error: "Item not found" });
 
-    res.json(updatedItem);
+    console.log("Successfully updated");
+    res.status(201).json(updatedItem);
   } catch (err) {
     res.status(400).json({ error: "Invalid update" });
   }
@@ -55,7 +56,7 @@ app.delete("/api/items/:id", async (req, res) => {
     const deletedItem = await Item.findByIdAndDelete(req.params.id);
     if (!deletedItem) return res.status(404).json({ error: "Item not found" });
 
-    res.json({ message: "Item deleted successfully", deletedItem });
+    res.status(201).json({ message: "Item deleted successfully", deletedItem });
   } catch (err) {
     res.status(500).json({ error: "Server error" });
   }
