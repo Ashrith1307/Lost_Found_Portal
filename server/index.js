@@ -16,7 +16,7 @@ const Item = require("./models/itemModels"); // Import Model
 
 app.get("/api/items", async (req, res) => {
   try {
-    const items = await Item.find(); // Fetch all items from MongoDB
+    const items = await Item.find({}); // Fetch all items from MongoDB
     res.json(items);
   } catch (err) {
     res.status(500).json({ error: "Server error" });
@@ -28,7 +28,7 @@ app.post("/api/items", async (req, res) => {
     const { name, description, status, reportedBy } = req.body;
     const newItem = new Item({ name, description, status, reportedBy });
     await newItem.save(); // Save to MongoDB
-    res.json(newItem);
+    res.status(201).json(newItem);
   } catch (err) {
     res.status(400).json({ error: "Invalid data" });
   }
@@ -60,3 +60,6 @@ app.delete("/api/items/:id", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+const PORT = 5000;
+app.listen(PORT,()=>console.log("Server running successfully"));

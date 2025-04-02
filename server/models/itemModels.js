@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 // Schema (structure of an item)
 const itemSchema = new mongoose.Schema({
-  name: String,
-  description: String,
+  name: {String},
+  description: {String},
   status: { type: String, enum: ["lost", "found"], required: true },
-  reportedBy: String,
+  reportedBy: {String},
   date: { type: Date, default: Date.now },
 });
 
