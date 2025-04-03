@@ -12,9 +12,32 @@
     <div class="login">
       <h2>Login</h2>
       <div class="login-form">
-        <input type="email" placeholder="Enter college email">
-        <a href="/Frontend/Reported_Items/report_Items.html"><button>Log-in</button></a>
+        <input type="email" placeholder="Enter college email" id="email">
+        <button id="loginForm">Log-in</button>
       </div>
+      <p id="message"></p>
     </div>
+    <script>
+    document.getElementById("loginForm").addEventListener("click", function(event) {
+      event.preventDefault(); 
+
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message");
+
+      // Check if email belongs to CMRCET
+      if (email.endsWith("@cmrcet.ac.in")) {
+          message.innerText = "Login successful! Redirecting...";
+          message.style.color = "green";
+
+          
+          setTimeout(() => {
+              window.location.href = "/Frontend/Reported_Items/report_Items.html";
+          }, 1000); // Delay for 1 second
+      } else {
+          message.innerText = "Only CMRCET emails are allowed!";
+          message.style.color = "red";
+      }
+      });
+</script>
 </body>
 </html>
