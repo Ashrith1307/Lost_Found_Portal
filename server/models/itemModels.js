@@ -1,15 +1,26 @@
-const mongoose = require("mongoose");
+// models/Item.js
+const mongoose = require('mongoose');
 
-// Schema (structure of an item)
 const itemSchema = new mongoose.Schema({
-  name: {String},
-  description: {String},
-  status: { type: String, enum: ["lost", "found"], required: true },
-  reportedBy: {String},
-  date: { type: Date, default: Date.now },
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: String,
+    required: true
+  },
+  reportedBy: {
+    type: String,
+    required: true
+  }
+}, {
+  timestamps: false,  // Disable automatic timestamps
+  versionKey: false   // Disable __v field
 });
 
-// Model (to interact with MongoDB)
-const Item = mongoose.model("Item", itemSchema);
-
-module.exports = Item;
+module.exports = mongoose.model('Item', itemSchema);

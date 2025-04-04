@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const cors = require('cors');
 mongoose
   .connect("mongodb://127.0.0.1:27017/lostfound", {
     useNewUrlParser: true,
@@ -10,8 +10,13 @@ mongoose
 
 const express = require("express");
 const app = express();
+
+
 app.use(express.json()); // Middleware to parse JSON request body
+app.use(cors());
   
+
+
 const Item = require("./models/itemModels"); // Import Model
 
 app.get("/api/items", async (req, res) => {
@@ -25,14 +30,34 @@ app.get("/api/items", async (req, res) => {
 
 app.post("/api/items", async (req, res) => {
   try {
+    // Destructure ONLY the allowed fields
     const { name, description, status, reportedBy } = req.body;
-    const newItem = new Item({ name, description, status, reportedBy });
-    await newItem.save(); // Save to MongoDB
-    res.status(201).json(newItem);
+
+    // Create document with ONLY the allowed fields
+    const newItem = await Item.create({
+      name,
+      description,
+      status,
+      reportedBy
+    });
+
+    // Create response using ONLY the input fields
+    const response = {
+      status: newItem.status,
+      name: newItem.name,
+      description: newItem.description,
+      reportedBy: newItem.reportedBy
+    };
+
+    res.json(response);
+
   } catch (err) {
+    console.error("Error saving item:", err);
     res.status(400).json({ error: "Invalid data" });
   }
 });
+
+
 
 app.put("/api/items/:id", async (req, res) => {
   try {
