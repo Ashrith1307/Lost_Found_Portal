@@ -27,6 +27,7 @@
       document
         .getElementById("Submit")
         .addEventListener("click", function lost() {
+          event.preventDefault();
           // Get input values from the form
           const name = document.getElementById("name").value;
           const description = document.getElementById("description").value;
@@ -53,8 +54,7 @@
             body: JSON.stringify(lostItem),
           })
             .then((response) => console.log(response.json()))
-            .catch((error) => console.error("Error reporting item:", error))
-            .finally(() => location.reload());
+            .catch((error) => console.error("Error reporting item:", error));
         });
     </script>
   </body>
