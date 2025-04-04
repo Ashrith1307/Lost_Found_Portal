@@ -24,6 +24,7 @@
       </div>
     </div>
     <script>
+      // using "window.onload" because problem in loading the DOM
       window.onload = function () {
         document
           .getElementById("Submit")
@@ -58,7 +59,9 @@
               .then((response) => console.log(response.json()))
               .then((data) => {
                 console.log("Server Response:", data);
-                alert("Item reported successfully!");
+                document.getElementById("name").value = "";
+                document.getElementById("description").value = "";
+                document.getElementById("contact").value = "";
               })
               .catch((error) => console.error("Error reporting item:", error));
           });
