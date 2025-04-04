@@ -32,12 +32,12 @@
 
             setTimeout(() => {
               window.location.href = "report_Items.html";
-              email.value = "";
             }, 1000); // Delay for 1 second
           } else {
             message.innerText = "Only CMRCET emails are allowed!";
             message.style.color = "red";
           }
+          email.value = "";
         });
     </script>
   </body>
