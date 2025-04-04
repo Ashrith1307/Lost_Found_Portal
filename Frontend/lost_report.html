@@ -27,6 +27,7 @@
       document
         .getElementById("Submit")
         .addEventListener("click", function lost() {
+          console.log("this button is pushed.");
           event.preventDefault();
           // Get input values from the form
           const name = document.getElementById("name").value;
