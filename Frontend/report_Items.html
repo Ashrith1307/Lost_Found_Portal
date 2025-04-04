@@ -1,3 +1,4 @@
+<!-- editing the html page(extra div.container) of this one because to fix some UI issues  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,15 +8,17 @@
     <link rel="stylesheet" href="report_Items.css" />
   </head>
   <body>
-    <h1>Lost & Found Portal</h1>
-    <div class="reports">
-      <h2>Recent Reports</h2>
-      <div class="addReports">
-        <a href="lost_report.html"><h3 id="addLost">Report Lost</h3></a>
-        <a href="found_report.html"><h3 id="addFound">Report Found</h3></a>
+    <div class="container">
+      <h1>Lost & Found Portal</h1>
+      <div class="reports">
+        <h2>Recent Reports</h2>
+        <div class="addReports">
+          <a href="lost_report.html"><h3 id="addLost">Report Lost</h3></a>
+          <a href="found_report.html"><h3 id="addFound">Report Found</h3></a>
+        </div>
       </div>
+      <div id="report-list"></div>
     </div>
-    <div id="report-list"></div>
     <script>
       // Shows all the Items
       const URL = "https://lost-found-portal.onrender.com/api/items";
