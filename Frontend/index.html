@@ -22,11 +22,11 @@
         .addEventListener("click", function (event) {
           event.preventDefault();
 
-          const email = document.getElementById("email").value;
+          const email = document.getElementById("email");
           const message = document.getElementById("message");
 
           // Check if email belongs to CMRCET
-          if (email.endsWith("@cmrcet.ac.in")) {
+          if (email.value.endsWith("@cmrcet.ac.in")) {
             message.innerText = "Login successful! Redirecting...";
             message.style.color = "green";
 
@@ -37,7 +37,7 @@
             message.innerText = "Only CMRCET emails are allowed!";
             message.style.color = "red";
           }
-          email = "";
+          email.value = "";
         });
     </script>
   </body>

@@ -40,9 +40,9 @@
                     <p><strong>Reported By:</strong>${item.reportedBy}</p>
                     `;
             if (item.status == "found") {
-              itemDiv.style.color = "green";
+              itemDiv.style.borderLeft = "5px solid green";
             } else if (item.status == "lost") {
-              itemDiv.style.color = "red";
+              itemDiv.style.borderLeft = "5px solid red";
             }
             itemList.appendChild(itemDiv);
           });
