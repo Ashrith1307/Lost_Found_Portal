@@ -1,43 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lost & Found</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>Lost & Found Portal</h1>
     <div class="login">
       <h2>Login</h2>
       <div class="login-form">
-        <input type="email" placeholder="Enter college email" id="email">
+        <input type="email" placeholder="Enter college email" id="email" />
         <button id="loginForm">Log-in</button>
       </div>
       <p id="message"></p>
     </div>
     <script>
-    document.getElementById("loginForm").addEventListener("click", function(event) {
-      event.preventDefault(); 
+      document
+        .getElementById("loginForm")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
 
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message");
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message");
 
-      // Check if email belongs to CMRCET
-      if (email.endsWith("@cmrcet.ac.in")) {
-          message.innerText = "Login successful! Redirecting...";
-          message.style.color = "green";
+          // Check if email belongs to CMRCET
+          if (email.endsWith("@cmrcet.ac.in")) {
+            message.innerText = "Login successful! Redirecting...";
+            message.style.color = "green";
 
-          
-          setTimeout(() => {
+            setTimeout(() => {
               window.location.href = "report_Items.html";
-          }, 1000); // Delay for 1 second
-      } else {
-          message.innerText = "Only CMRCET emails are allowed!";
-          message.style.color = "red";
-      }
-      });
-</script>
-</body>
+              email.value = "";
+            }, 1000); // Delay for 1 second
+          } else {
+            message.innerText = "Only CMRCET emails are allowed!";
+            message.style.color = "red";
+          }
+        });
+    </script>
+  </body>
 </html>
