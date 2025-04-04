@@ -82,6 +82,3 @@ app.delete("/api/items/:id", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
-
-const PORT = 5000;
-app.listen(PORT, () => console.log("Server running successfully"));
