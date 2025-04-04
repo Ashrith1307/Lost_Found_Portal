@@ -44,7 +44,7 @@
       }
 
       // Fetch items when the page loads
-      window.onload = fetchReportedItems;
+      window.addEventListener("pageshow", fetchReportedItems);
     </script>
   </body>
 </html>

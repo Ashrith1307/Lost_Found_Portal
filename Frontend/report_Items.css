@@ -1,57 +1,65 @@
 body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 20px auto;
-    height: 92.5vh;
-    padding: 0 20px;
-    background: linear-gradient(to bottom right, rgb(255, 255, 255,0.5), rgb(0, 0, 255,0.2));
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  height: 92.5vh;
+  padding: 0 20px;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255, 0.5),
+    rgb(0, 0, 255, 0.2)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* makes it stay fixed even if content scrolls */
+  background-size: cover; /* stretch to cover full page */
 }
 h1 {
-    text-align: center;
-    color: #333;
+  text-align: center;
+  color: #333;
 }
-.reports{
-    display: flex;
-    display: flex;    
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
+.reports {
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
 }
-.addReports{
-    display: flex;
-    justify-content: space-between;
-    
+.addReports {
+  display: flex;
+  justify-content: space-between;
 }
-.addReports a{
-    text-decoration: none;
+.addReports a {
+  text-decoration: none;
 }
 
-.addReports h3{
-    padding: 0;
-    margin-top: 22px;
-    text-decoration: none;
+.addReports h3 {
+  padding: 0;
+  margin-top: 22px;
+  text-decoration: none;
 }
-#addFound{
-    color:rgb(83, 228, 83);
-    margin-left: 10px;
+#addFound {
+  color: rgb(83, 228, 83);
+  margin-left: 10px;
 }
-#addLost{
-    color: rgb(242, 49, 49);
+#addLost {
+  color: rgb(242, 49, 49);
 }
 .report-list {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 .report-item {
-    background-color: #f8f9fa;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 4px;
+  background-color: #f8f9fa;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 4px;
 }
 .report-item h3 {
-    margin: 0 0 8px 0;
-    color: #333;
+  margin: 0 0 8px 0;
+  color: #333;
 }
 .report-item p {
-    margin: 4px 0;
-    color: #666;
+  margin: 4px 0;
+  color: #666;
 }
