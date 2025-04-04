@@ -1,71 +1,115 @@
-/* editing the css page of this one because to fix some UI issues */
+/* Base Styles */
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
+
 body {
   background: linear-gradient(
     to bottom right,
-    rgb(255, 255, 255, 0.3),
-    rgb(0, 0, 255, 0.4)
+    rgba(255, 255, 255, 0.3),
+    rgba(0, 0, 255, 0.4)
   );
   background-repeat: no-repeat;
-  background-attachment: fixed; /* makes it stay fixed even if content scrolls */
-  background-size: cover; /* stretch to cover full page */
-}
-.container {
+  background-attachment: fixed;
+  background-size: cover;
   font-family: Arial, sans-serif;
-  max-width: 800px;
+}
+
+.container {
+  max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
 }
+
 h1 {
   text-align: center;
   color: #333;
 }
-.reports {
-  display: flex;
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  margin: 0;
-}
+
+.reports,
 .addReports {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
+
 .addReports a {
   text-decoration: none;
 }
 
 .addReports h3 {
-  padding: 0;
   margin-top: 22px;
-  text-decoration: none;
 }
+
 #addFound {
   color: rgb(83, 228, 83);
   margin-left: 10px;
 }
+
 #addLost {
   color: rgb(242, 49, 49);
 }
+
+/* Grid/List of Report Items */
 .report-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
   margin-top: 30px;
 }
+
 .report-item {
   background-color: #f8f9fa;
   padding: 15px;
-  margin: 15px 0;
-  border-radius: 4px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
 }
+
+.report-item:hover {
+  transform: translateY(-4px);
+}
+
 .report-item h3 {
   margin: 0 0 8px 0;
   color: #333;
 }
+
 .report-item p {
   margin: 4px 0;
   color: #666;
+}
+
+/* Media Queries */
+
+/* Mobile (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .addReports {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .addReports h3 {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+/* Tablet (601px - 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .addReports {
+    justify-content: space-around;
+  }
 }
