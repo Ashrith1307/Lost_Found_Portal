@@ -6,7 +6,11 @@ body {
   height: 100%;
 }
 body {
-  background: linear-gradient(to bottom right, #e6e6fa, #ffffff);
+  background: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255, 0.3),
+    rgb(0, 0, 255, 0.4)
+  );
   background-repeat: no-repeat;
   background-attachment: fixed; /* makes it stay fixed even if content scrolls */
   background-size: cover; /* stretch to cover full page */
