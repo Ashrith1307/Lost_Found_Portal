@@ -14,13 +14,7 @@ const express = require("express");
 const app = express();
 
 app.use(express.json()); // Middleware to parse JSON request body
-app.use(
-  cors({
-    origin: "https://wonderful-axolotl-49e1ac.netlify.app", // Allow only your frontend
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type",
-  })
-);
+app.use(cors());
 const Item = require("./models/itemModels"); // Import Model
 
 app.get("/api/items", async (req, res) => {
