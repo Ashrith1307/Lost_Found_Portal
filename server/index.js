@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const cors = require('cors');
+const cors = require("cors");
 mongoose
-  .connect("mongodb://127.0.0.1:27017/lostfound", {
+  .connect("mongodb://localhost:27017/lostfound", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -11,11 +11,8 @@ mongoose
 const express = require("express");
 const app = express();
 
-
 app.use(express.json()); // Middleware to parse JSON request body
 app.use(cors());
-  
-
 
 const Item = require("./models/itemModels"); // Import Model
 
@@ -38,7 +35,7 @@ app.post("/api/items", async (req, res) => {
       name,
       description,
       status,
-      reportedBy
+      reportedBy,
     });
 
     // Create response using ONLY the input fields
@@ -46,18 +43,15 @@ app.post("/api/items", async (req, res) => {
       status: newItem.status,
       name: newItem.name,
       description: newItem.description,
-      reportedBy: newItem.reportedBy
+      reportedBy: newItem.reportedBy,
     };
 
     res.json(response);
-
   } catch (err) {
     console.error("Error saving item:", err);
     res.status(400).json({ error: "Invalid data" });
   }
 });
-
-
 
 app.put("/api/items/:id", async (req, res) => {
   try {
@@ -88,4 +82,4 @@ app.delete("/api/items/:id", async (req, res) => {
 });
 
 const PORT = 5000;
-app.listen(PORT,()=>console.log("Server running successfully"));
+app.listen(PORT, () => console.log("Server running successfully"));
